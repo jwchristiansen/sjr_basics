@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dinosaurs</h1>
+
+<%= render 'form', dinosaur: @dinosaur %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dinosaurs.each do |dinosaur| %>
+      <tr>
+        <td><%= dinosaur.name %></td>
+        <td><%= link_to 'Show', dinosaur %></td>
+        <td><%= link_to 'Edit', edit_dinosaur_path(dinosaur) %></td>
+        <td><%= link_to 'Destroy', dinosaur, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dinosaur', new_dinosaur_path %>
